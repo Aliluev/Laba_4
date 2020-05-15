@@ -5,26 +5,26 @@ using namespace std;
 template<class M>
 class Matric
 {private:
-  void MemorySize(int width, int length)//выделение памяти
+  void MemorySize(int width, int length)//РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё
   {
     massiv = new M * [m];
     for (int i = 0; i < width; i++) this->massiv[i] = new M[length];
  }
 protected:
-  int m;//строки
-  int n;//столбцы
+  int m;//СЃС‚СЂРѕРєРё
+  int n;//СЃС‚РѕР»Р±С†С‹
   M** massiv;
 public:
   Matric();
-  Matric(int a, int b);//пустая матрица нужной размерности
+  Matric(int a, int b);//РїСѓСЃС‚Р°СЏ РјР°С‚СЂРёС†Р° РЅСѓР¶РЅРѕР№ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё
   Matric(int c, int d, M** arr);
   Matric(const Matric<M>& other);
   ~Matric();
-  M** GetMatric();//массив матрицы
-  int GetM();// узнать количество строк
-  int GetN();//узнать количество столбцов
-  void SetRazmernost(int width, int length);//установить размерность
-  void SetMatric(M** e);//переписать значение полей в матрице уже созданной размерности
+  M** GetMatric();//РјР°СЃСЃРёРІ РјР°С‚СЂРёС†С‹
+  int GetM();// СѓР·РЅР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє
+  int GetN();//СѓР·РЅР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ
+  void SetRazmernost(int width, int length);//СѓСЃС‚Р°РЅРѕРІРёС‚СЊ СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ
+  void SetMatric(M** e);//РїРµСЂРµРїРёСЃР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РµР№ РІ РјР°С‚СЂРёС†Рµ СѓР¶Рµ СЃРѕР·РґР°РЅРЅРѕР№ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё
   Matric<M> operator=(const Matric<M>& other);
   bool operator ==(const Matric<M>& other);
   M*& operator [](const int i);
@@ -46,7 +46,7 @@ Matric<M>::Matric()
   massiv[0][0] = 0;
 }
 template<class M>
-Matric<M>::Matric(int a,int b)//пустая матрица нужной размерности
+Matric<M>::Matric(int a,int b)//РїСѓСЃС‚Р°СЏ РјР°С‚СЂРёС†Р° РЅСѓР¶РЅРѕР№ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё
 {
   m = a;
   n = b;
@@ -118,18 +118,18 @@ M** Matric<M>::GetMatric()
 }
 
 template<class M>
-void Matric<M>::SetRazmernost(int width, int length)//установить размерность
+void Matric<M>::SetRazmernost(int width, int length)//СѓСЃС‚Р°РЅРѕРІРёС‚СЊ СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ
 {
   m = width;
   n = length;
 }
 
 template<class M>
-void Matric<M>::SetMatric(M** e)//переписать значение полей в матрице уже созданной размерности
+void Matric<M>::SetMatric(M** e)//РїРµСЂРµРїРёСЃР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РїРѕР»РµР№ РІ РјР°С‚СЂРёС†Рµ СѓР¶Рµ СЃРѕР·РґР°РЅРЅРѕР№ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё
 {
   for (int i = 0; i < m; i++)
     for (int j = 0; j < n; j++)
-      massiv[i][j] = e[i][j];//переписываем массив новых значений
+      massiv[i][j] = e[i][j];//РїРµСЂРµРїРёСЃС‹РІР°РµРј РјР°СЃСЃРёРІ РЅРѕРІС‹С… Р·РЅР°С‡РµРЅРёР№
 }
 
 template<class M>
@@ -137,7 +137,7 @@ Matric<M> Matric<M>::operator=(const Matric<M>& other)
 {
   if (*this == other)
     return *this;
-  for (int i = 0; i < m; i++)//удаляем старый массив, чтобы можно было присваивать матрицу другой размерности
+  for (int i = 0; i < m; i++)//СѓРґР°Р»СЏРµРј СЃС‚Р°СЂС‹Р№ РјР°СЃСЃРёРІ, С‡С‚РѕР±С‹ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РїСЂРёСЃРІР°РёРІР°С‚СЊ РјР°С‚СЂРёС†Сѓ РґСЂСѓРіРѕР№ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё
   {
     massiv[i] = 0;
     delete[] massiv[i];
@@ -218,7 +218,7 @@ Matric<M> Matric<M>::operator*(const Matric<M>& other)
 {
   if (n == other.m)
   {
-    Matric<M> mat(m,(other.n));//сделали пустой массив нужной размерности
+    Matric<M> mat(m,(other.n));//СЃРґРµР»Р°Р»Рё РїСѓСЃС‚РѕР№ РјР°СЃСЃРёРІ РЅСѓР¶РЅРѕР№ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё
     for (int i = 0; i < mat.m; i++)
       for (int j = 0; j < mat.n; j++)
       {
