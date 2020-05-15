@@ -2,6 +2,7 @@
 #include <iostream>
 #include <clocale>
 #include <iomanip>
+#include"Matrix.h"
 
 using namespace std;
 template <class Vector>
