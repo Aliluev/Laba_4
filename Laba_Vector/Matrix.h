@@ -35,6 +35,7 @@ public:
   friend ostream& operator<<(ostream& os, const Matric<M>& mat);
   template<class M>
   friend istream& operator>>(istream& in, Matric<M>& mat);
+  int Poiskk(M a);//количество вхождений указанного значения
 };
 
 template<class M>
@@ -97,6 +98,22 @@ Matric<M>::~Matric()
     n = 0;
     m = 0;
   }
+}
+template<class M>
+int Matric<M>::Poiskk(M a)//количество вхождений указанного значения
+{
+  int kol = 0;
+  for (int i = 0; i < m; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      if (massiv[i][j] == a)
+      {
+        kol = kol + 1;
+      }
+    }
+  }
+  return kol;
 }
 
 template<class M>

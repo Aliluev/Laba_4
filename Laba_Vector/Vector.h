@@ -34,8 +34,7 @@ public:
   clock_t BubbleSort();
   clock_t InsertionSort();
   clock_t QuickSort(int first, int last);
-  //friend clock_t InsertionSort(MyVector<Vector>& other);
-  //friend clock_t QuickSort(MyVector<Vector>& other, int first, int last);
+  int Poisk(Vector a);//количество вхождений указанного значения
 };
 
 
@@ -284,6 +283,19 @@ clock_t MyVector<Vector>::BubbleSort()
   }
   finish = clock();
   return (finish - start);
+}
+template<class Vector>
+int MyVector<Vector>::Poisk(Vector a)//количество вхождений указанного значения
+{
+  int kol = 0;
+  for (int i = 0; i < razmer; i++)
+  {
+    if (massiv[i] == a)
+    {
+      kol = kol + 1;
+    }
+  }
+  return kol;
 }
 
 template<class Vector>

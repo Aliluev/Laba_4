@@ -81,6 +81,13 @@ int main()
   cout << "vuchitanie" << "\n";
   ABC = AB - AC;
   cout << ABC << "\n";
+  cout << "kolichestvo vxozhdeniy ukazannogo znacheniya" << "\n";
+  int uu;
+  uu=E.Poisk(3);
+  cout<<uu<<"\n";
 
+  int rr;
+  rr = AB.Poiskk(2);
+  cout << rr<<"\n";
   return 0;
 }
