@@ -7,6 +7,7 @@
 #include <vector>
 #include<iostream>
 #include <iomanip>
+#include"Header.h"
 using namespace std;
 int main()
 {

@@ -15,7 +15,7 @@ MyVector<T> operator *(Matric<T>& matrix, MyVector<T>& vector)
       result.massiv[i]=0;
       for (int j = 0; j < vector.GetM(); j++)
       {
-        result.massiv[i]=result[i] + (matrix[i][j] * vector[j]));
+        result.massiv[i]=result[i] + (matrix[i][j] * vector[j]);
 
       }
     }
@@ -33,7 +33,7 @@ Matric<T> operator *(MyVector<T>& vector, Matric<T>& matrix)
   {
     T** arr = new T * [matrix.GetN()];
     for (int i = 0; i < vector.GetM(); i++)
-      massiv[i] = new T[vector.GetM()];
+      arr[i] = new T[vector.GetM()];
     Matric<T> result(matrix.GetN(), vector.GetM(), arr);
 
     for (int i = 0; i < result.GetM(); i++)
