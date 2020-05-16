@@ -29,22 +29,23 @@ MyVector<T> operator *(Matric<T>& matrix, MyVector<T>& vector)
 template <class T>
 Matric<T> operator *(MyVector<T>& vector, Matric<T>& matrix)
 {
-  if (matrix.GetN() == vector.GetM() && matrix.GetM() == 1)
+  if (matrix.GetN() == vector.GetRazmer() && matrix.GetM() == 1)
   {
     T** arr = new T * [matrix.GetN()];
-    for (int i = 0; i < vector.GetM(); i++)
-      arr[i] = new T[vector.GetM()];
-    Matric<T> result(matrix.GetN(), vector.GetM(), arr);
+    for (int i = 0; i < vector.GetRazmer(); i++)
+      arr[i] = new T[vector.GetRazmer()];
 
-    for (int i = 0; i < result.GetM(); i++)
-
-      for (int j = 0; j < result.GetN(); j++)
+    for (int i = 0; i < vector.GetRazmer(); i++)
+      for (int j = 0; j < matrix.GetN(); j++)
       {
-        result.SetRazmernost(i, j);
-        result.massiv[i]=(matrix[0][j] * vector[i]);
+       /* result.SetRazmernost(i, j);
+          result.s[i]=(matrix[0][j] * vector[i]);*/
+          arr[i][j]= (matrix[0][j] * vector[i]);
       }
+    Matric<T> result(matrix.GetN(), vector.GetRazmer(), arr);
 
-    for (int i = 0; i < vector.GetM(); i++)
+
+    for (int i = 0; i < vector.GetRazmer(); i++)
       delete[] arr[i];
     delete[] arr;
     return result;

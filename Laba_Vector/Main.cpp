@@ -83,6 +83,15 @@ int main()
   ABC = AB - AC;
   cout << ABC << "\n";
   cout << "kolichestvo vxozhdeniy ukazannogo znacheniya" << "\n";
+  cout << "Vector*Matrica" << "\n";
+  int arrar[] = { 1,2,3 };
+  MyVector<int> V1(3, arrar);
+  Matric<int> V2;
+  Matric<int> V3;
+  cout << "vvedite razmernosti 1*3" << "\n";
+  cin >> V2;
+  V3 = V1 * V2;
+  cout << V3;
   int uu;
   uu=E.Poisk(3);
   cout<<uu<<"\n";
