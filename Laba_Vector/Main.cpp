@@ -91,7 +91,16 @@ int main()
   cout << "vvedite razmernosti 1*3" << "\n";
   cin >> V2;
   V3 = V1 * V2;
-  cout << V3;
+  cout << V3<<"\n";
+  cout << "Matrix*Vector" << "\n";
+  Matric<int> VV;
+  cout << "vvedite razmernost' 3*3" << "\n";
+  cin >> VV;
+  int arrereq[] = { 9,2,1 };
+  MyVector<int> IO(3, arrereq);
+  MyVector<int> I;
+  I = VV * IO;
+  cout << I << "\n";
   int uu;
   uu=E.Poisk(3);
   cout<<uu<<"\n";

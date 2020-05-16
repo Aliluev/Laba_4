@@ -4,21 +4,22 @@
 template <class T>
 MyVector<T> operator *(Matric<T>& matrix, MyVector<T>& vector)
 {
-  if (matrix.GetM() == vector.GetM())
+  if (matrix.GetM() == vector.GetRazmer())
   {
-    T* arr = new T[matrix.GetN()];
-    MyVector<T> result(matrix.GetN(), arr);
-
-
-    for (int i = 0; i < result.GetM(); i++)
+    T* arr = new T[matrix.GetM()];//нужный массив
+    T** arr_matrix = matrix.GetMatric();
+    T* arr_vector = vector.GetVector();
+    /*MyVector<T> result(matrix.GetN(), arr);*/
+    for (int i = 0; i < matrix.GetM(); i++)
     {
-      result.massiv[i]=0;
-      for (int j = 0; j < vector.GetM(); j++)
+      arr[i]=0;
+      for (int j = 0; j < matrix.GetN(); j++)
       {
-        result.massiv[i]=result[i] + (matrix[i][j] * vector[j]);
+        arr[i]=arr[i] + (arr_matrix[i][j] * arr_vector[j]);
 
       }
     }
+    MyVector<T> result(matrix.GetN(), arr);
     delete[] arr;
     return result;
   }
